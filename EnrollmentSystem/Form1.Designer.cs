@@ -45,7 +45,17 @@
             this.OfferingComboBox = new System.Windows.Forms.ComboBox();
             this.CourseCodeComboBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.SubjectCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PreRequisiteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +73,7 @@
             // 
             this.SubjectCodeTextBox.Location = new System.Drawing.Point(128, 77);
             this.SubjectCodeTextBox.Name = "SubjectCodeTextBox";
-            this.SubjectCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SubjectCodeTextBox.Size = new System.Drawing.Size(151, 20);
             this.SubjectCodeTextBox.TabIndex = 1;
             // 
             // label2
@@ -81,7 +91,7 @@
             // 
             this.DescriptionTextBox.Location = new System.Drawing.Point(128, 103);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(151, 20);
             this.DescriptionTextBox.TabIndex = 1;
             // 
             // label3
@@ -99,7 +109,7 @@
             // 
             this.UnitsTextBox.Location = new System.Drawing.Point(128, 129);
             this.UnitsTextBox.Name = "UnitsTextBox";
-            this.UnitsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.UnitsTextBox.Size = new System.Drawing.Size(151, 20);
             this.UnitsTextBox.TabIndex = 1;
             // 
             // label4
@@ -150,7 +160,7 @@
             // 
             this.CurriculumYearTextBox.Location = new System.Drawing.Point(128, 258);
             this.CurriculumYearTextBox.Name = "CurriculumYearTextBox";
-            this.CurriculumYearTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CurriculumYearTextBox.Size = new System.Drawing.Size(151, 20);
             this.CurriculumYearTextBox.TabIndex = 1;
             // 
             // label8
@@ -164,7 +174,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(551, 378);
+            this.SaveButton.Location = new System.Drawing.Point(452, 83);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 3;
@@ -238,22 +248,91 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(40, 65);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 310);
+            this.panel1.Size = new System.Drawing.Size(346, 310);
             this.panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Location = new System.Drawing.Point(12, 328);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(813, 231);
+            this.panel2.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "label9";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(128, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubjectCodeColumn,
+            this.DescriptionColumn,
+            this.UnitsColumn,
+            this.PreRequisiteColumn});
+            this.dataGridView1.Location = new System.Drawing.Point(22, 64);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(771, 150);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // SubjectCodeColumn
+            // 
+            this.SubjectCodeColumn.HeaderText = "Subject Code";
+            this.SubjectCodeColumn.Name = "SubjectCodeColumn";
+            this.SubjectCodeColumn.Width = 175;
+            // 
+            // DescriptionColumn
+            // 
+            this.DescriptionColumn.HeaderText = "Description";
+            this.DescriptionColumn.Name = "DescriptionColumn";
+            this.DescriptionColumn.Width = 300;
+            // 
+            // UnitsColumn
+            // 
+            this.UnitsColumn.HeaderText = "Units";
+            this.UnitsColumn.Name = "UnitsColumn";
+            // 
+            // PreRequisiteColumn
+            // 
+            this.PreRequisiteColumn.HeaderText = "Co/Pre-Requisite";
+            this.PreRequisiteColumn.Name = "PreRequisiteColumn";
+            this.PreRequisiteColumn.Width = 175;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(837, 571);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SaveButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,6 +356,14 @@
         private System.Windows.Forms.ComboBox OfferingComboBox;
         private System.Windows.Forms.ComboBox CourseCodeComboBox;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubjectCodeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescriptionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitsColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PreRequisiteColumn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
     }
 }
 
