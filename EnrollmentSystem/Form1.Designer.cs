@@ -44,12 +44,14 @@
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.OfferingComboBox = new System.Windows.Forms.ComboBox();
             this.CourseCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 99);
+            this.label1.Location = new System.Drawing.Point(31, 80);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(71, 13);
@@ -59,7 +61,7 @@
             // 
             // SubjectCodeTextBox
             // 
-            this.SubjectCodeTextBox.Location = new System.Drawing.Point(175, 96);
+            this.SubjectCodeTextBox.Location = new System.Drawing.Point(128, 77);
             this.SubjectCodeTextBox.Name = "SubjectCodeTextBox";
             this.SubjectCodeTextBox.Size = new System.Drawing.Size(100, 20);
             this.SubjectCodeTextBox.TabIndex = 1;
@@ -67,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 125);
+            this.label2.Location = new System.Drawing.Point(31, 106);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(60, 13);
@@ -77,7 +79,7 @@
             // 
             // DescriptionTextBox
             // 
-            this.DescriptionTextBox.Location = new System.Drawing.Point(175, 122);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(128, 103);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.Size = new System.Drawing.Size(100, 20);
             this.DescriptionTextBox.TabIndex = 1;
@@ -85,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 151);
+            this.label3.Location = new System.Drawing.Point(31, 132);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(31, 13);
@@ -95,7 +97,7 @@
             // 
             // UnitsTextBox
             // 
-            this.UnitsTextBox.Location = new System.Drawing.Point(175, 148);
+            this.UnitsTextBox.Location = new System.Drawing.Point(128, 129);
             this.UnitsTextBox.Name = "UnitsTextBox";
             this.UnitsTextBox.Size = new System.Drawing.Size(100, 20);
             this.UnitsTextBox.TabIndex = 1;
@@ -103,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 189);
+            this.label4.Location = new System.Drawing.Point(31, 170);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(44, 13);
@@ -114,7 +116,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(78, 215);
+            this.label5.Location = new System.Drawing.Point(31, 196);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(49, 13);
@@ -125,7 +127,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(78, 254);
+            this.label6.Location = new System.Drawing.Point(31, 235);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(68, 13);
@@ -136,7 +138,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 280);
+            this.label7.Location = new System.Drawing.Point(31, 261);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label7.Size = new System.Drawing.Size(81, 13);
@@ -146,7 +148,7 @@
             // 
             // CurriculumYearTextBox
             // 
-            this.CurriculumYearTextBox.Location = new System.Drawing.Point(175, 277);
+            this.CurriculumYearTextBox.Location = new System.Drawing.Point(128, 258);
             this.CurriculumYearTextBox.Name = "CurriculumYearTextBox";
             this.CurriculumYearTextBox.Size = new System.Drawing.Size(100, 20);
             this.CurriculumYearTextBox.TabIndex = 1;
@@ -154,7 +156,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(127, 39);
+            this.label8.Location = new System.Drawing.Point(80, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 2;
@@ -162,7 +164,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(520, 140);
+            this.SaveButton.Location = new System.Drawing.Point(551, 378);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 3;
@@ -177,7 +179,7 @@
             this.CategoryComboBox.Items.AddRange(new object[] {
             "LEC",
             "LAB"});
-            this.CategoryComboBox.Location = new System.Drawing.Point(175, 215);
+            this.CategoryComboBox.Location = new System.Drawing.Point(128, 196);
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(100, 21);
             this.CategoryComboBox.TabIndex = 4;
@@ -190,7 +192,7 @@
             "1",
             "2",
             "3"});
-            this.OfferingComboBox.Location = new System.Drawing.Point(175, 186);
+            this.OfferingComboBox.Location = new System.Drawing.Point(128, 167);
             this.OfferingComboBox.Name = "OfferingComboBox";
             this.OfferingComboBox.Size = new System.Drawing.Size(100, 21);
             this.OfferingComboBox.TabIndex = 5;
@@ -199,36 +201,60 @@
             // 
             this.CourseCodeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CourseCodeComboBox.FormattingEnabled = true;
-            this.CourseCodeComboBox.Location = new System.Drawing.Point(175, 250);
+            this.CourseCodeComboBox.Items.AddRange(new object[] {
+            "BSIT",
+            "BSN",
+            "BSIS",
+            "ACT",
+            "BSMT",
+            "BSCRIM",
+            "BSA",
+            "BSBA",
+            "BSED",
+            "BEED",
+            "BSN",
+            "MED",
+            "JD"});
+            this.CourseCodeComboBox.Location = new System.Drawing.Point(128, 231);
             this.CourseCodeComboBox.Name = "CourseCodeComboBox";
             this.CourseCodeComboBox.Size = new System.Drawing.Size(100, 21);
             this.CourseCodeComboBox.TabIndex = 6;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.CurriculumYearTextBox);
+            this.panel1.Controls.Add(this.CourseCodeComboBox);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.OfferingComboBox);
+            this.panel1.Controls.Add(this.SubjectCodeTextBox);
+            this.panel1.Controls.Add(this.CategoryComboBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.DescriptionTextBox);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.UnitsTextBox);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Location = new System.Drawing.Point(40, 65);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(263, 310);
+            this.panel1.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.CourseCodeComboBox);
-            this.Controls.Add(this.OfferingComboBox);
-            this.Controls.Add(this.CategoryComboBox);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.CurriculumYearTextBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.UnitsTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.DescriptionTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.SubjectCodeTextBox);
-            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -250,6 +276,7 @@
         private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.ComboBox OfferingComboBox;
         private System.Windows.Forms.ComboBox CourseCodeComboBox;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
