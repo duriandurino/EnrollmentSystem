@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.SubjectCodeTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,10 +53,14 @@
             this.UnitsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PreRequisiteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RequisiteTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -174,7 +179,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.DodgerBlue;
+            this.SaveButton.BackColor = System.Drawing.Color.LightSkyBlue;
             this.SaveButton.Location = new System.Drawing.Point(246, 270);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
@@ -260,9 +265,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.SubjectDataGridView);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.RequisiteTextBox);
-            this.panel2.Controls.Add(this.label9);
             this.panel2.Location = new System.Drawing.Point(12, 328);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(813, 231);
@@ -277,8 +282,9 @@
             this.DescriptionColumn,
             this.UnitsColumn,
             this.PreRequisiteColumn});
-            this.SubjectDataGridView.Location = new System.Drawing.Point(22, 64);
+            this.SubjectDataGridView.Location = new System.Drawing.Point(6, 19);
             this.SubjectDataGridView.Name = "SubjectDataGridView";
+            this.SubjectDataGridView.ReadOnly = true;
             this.SubjectDataGridView.RowHeadersVisible = false;
             this.SubjectDataGridView.Size = new System.Drawing.Size(771, 150);
             this.SubjectDataGridView.TabIndex = 2;
@@ -287,41 +293,66 @@
             // 
             this.SubjectCodeColumn.HeaderText = "Subject Code";
             this.SubjectCodeColumn.Name = "SubjectCodeColumn";
+            this.SubjectCodeColumn.ReadOnly = true;
             this.SubjectCodeColumn.Width = 175;
             // 
             // DescriptionColumn
             // 
             this.DescriptionColumn.HeaderText = "Description";
             this.DescriptionColumn.Name = "DescriptionColumn";
+            this.DescriptionColumn.ReadOnly = true;
             this.DescriptionColumn.Width = 300;
             // 
             // UnitsColumn
             // 
             this.UnitsColumn.HeaderText = "Units";
             this.UnitsColumn.Name = "UnitsColumn";
+            this.UnitsColumn.ReadOnly = true;
             // 
             // PreRequisiteColumn
             // 
             this.PreRequisiteColumn.HeaderText = "Co/Pre-Requisite";
             this.PreRequisiteColumn.Name = "PreRequisiteColumn";
+            this.PreRequisiteColumn.ReadOnly = true;
             this.PreRequisiteColumn.Width = 175;
             // 
             // RequisiteTextBox
             // 
-            this.RequisiteTextBox.Location = new System.Drawing.Point(89, 35);
+            this.RequisiteTextBox.Location = new System.Drawing.Point(129, 16);
             this.RequisiteTextBox.Name = "RequisiteTextBox";
             this.RequisiteTextBox.Size = new System.Drawing.Size(150, 20);
             this.RequisiteTextBox.TabIndex = 1;
             this.RequisiteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RequisiteTextBox_KeyPress);
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Requisite";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(19, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(108, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Search Subject Code";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.groupBox1.Controls.Add(this.SubjectDataGridView);
+            this.groupBox1.Location = new System.Drawing.Point(13, 42);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(782, 175);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Requisite Information";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(409, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(367, 308);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -329,6 +360,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(837, 571);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -338,6 +370,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -368,7 +402,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitsColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PreRequisiteColumn;
         private System.Windows.Forms.TextBox RequisiteTextBox;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

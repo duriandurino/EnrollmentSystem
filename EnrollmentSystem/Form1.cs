@@ -37,6 +37,8 @@ namespace EnrollmentSystem
             thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
             thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text;
             thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.Text;
+            thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
+            thisRow["SFSUBJCURRYEAR"] = CurriculumYearTextBox.Text;
 
             thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
             thisAdapter.Update(thisDataSet, "SubjectFile");
