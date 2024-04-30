@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace EnrollmentSystem
 {
-    public partial class Form1 : Form
+    public partial class SubjectEntry : Form
     {
-        public Form1()
+        public SubjectEntry()
         {
             InitializeComponent();
         }
@@ -43,6 +43,7 @@ namespace EnrollmentSystem
             thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
             thisAdapter.Update(thisDataSet, "SubjectFile");
             MessageBox.Show("Entries Recorded");
+            
         }
 
         private void RequisiteTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -88,6 +89,12 @@ namespace EnrollmentSystem
                     SubjectDataGridView.Rows[index].Cells["UnitsColumn"].Value = units;
                 }
             }
+        }
+
+        private void SubjectEntry_Load(object sender, EventArgs e)
+        {
+            /*SubjSchedEntry subjSchedEntry = new SubjSchedEntry();
+            subjSchedEntry.Show();*/
         }
     }
 }
