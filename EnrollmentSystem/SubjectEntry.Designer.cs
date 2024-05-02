@@ -40,7 +40,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.CurriculumYearTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
             this.OfferingComboBox = new System.Windows.Forms.ComboBox();
@@ -56,6 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.RequisiteTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -168,15 +168,6 @@
             this.CurriculumYearTextBox.Size = new System.Drawing.Size(151, 20);
             this.CurriculumYearTextBox.TabIndex = 1;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(139, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Subject Entry";
-            // 
             // SaveButton
             // 
             this.SaveButton.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -249,14 +240,13 @@
             this.panel1.Controls.Add(this.CategoryComboBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.DescriptionTextBox);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.UnitsTextBox);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 56);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(346, 310);
             this.panel1.TabIndex = 7;
@@ -268,7 +258,7 @@
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.RequisiteTextBox);
-            this.panel2.Location = new System.Drawing.Point(12, 328);
+            this.panel2.Location = new System.Drawing.Point(12, 372);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(813, 231);
             this.panel2.TabIndex = 8;
@@ -347,19 +337,32 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(406, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(406, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(388, 243);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Yellow;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(39, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(153, 25);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Subject Entry";
+            // 
             // SubjectEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(837, 571);
+            this.ClientSize = new System.Drawing.Size(837, 624);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -374,6 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -390,7 +394,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox CurriculumYearTextBox;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.ComboBox OfferingComboBox;
@@ -406,6 +409,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
     }
 }
 

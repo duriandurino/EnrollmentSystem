@@ -16,5 +16,10 @@ namespace EnrollmentSystem
         {
             InitializeComponent();
         }
+
+        private void SubjSchedEntry_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
