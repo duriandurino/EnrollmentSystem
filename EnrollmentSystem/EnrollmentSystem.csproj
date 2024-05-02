@@ -66,6 +66,9 @@
     <Compile Include="SubjSchedEntry.Designer.cs">
       <DependentUpon>SubjSchedEntry.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StudEnrollmentForm.resx">
+      <DependentUpon>StudEnrollmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubjectEntry.resx">
       <DependentUpon>SubjectEntry.cs</DependentUpon>
     </EmbeddedResource>
