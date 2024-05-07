@@ -10,3 +10,5 @@
 \\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.pdb
 \\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.SubjectEntry.resources
 \\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.SubjSchedEntry.resources
+\\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.Homepage.resources
+\\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.StudEnrollmentForm.resources

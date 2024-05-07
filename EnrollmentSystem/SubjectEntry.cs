@@ -95,6 +95,10 @@ namespace EnrollmentSystem
         {
             /*SubjSchedEntry subjSchedEntry = new SubjSchedEntry();
             subjSchedEntry.Show();*/
+            Homepage homepage = new Homepage();
+            homepage.Show();
+
+           
         }
     }
 }
