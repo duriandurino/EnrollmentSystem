@@ -57,12 +57,13 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UCLogo = new System.Windows.Forms.PictureBox();
+            this.ModeButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UCLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -299,15 +300,26 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 13;
             // 
-            // pictureBox1
+            // UCLogo
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(430, 36);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(298, 169);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.UCLogo.Image = ((System.Drawing.Image)(resources.GetObject("UCLogo.Image")));
+            this.UCLogo.Location = new System.Drawing.Point(430, 36);
+            this.UCLogo.Name = "UCLogo";
+            this.UCLogo.Size = new System.Drawing.Size(298, 169);
+            this.UCLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.UCLogo.TabIndex = 14;
+            this.UCLogo.TabStop = false;
+            // 
+            // ModeButton
+            // 
+            this.ModeButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.ModeButton.Location = new System.Drawing.Point(749, 16);
+            this.ModeButton.Name = "ModeButton";
+            this.ModeButton.Size = new System.Drawing.Size(75, 23);
+            this.ModeButton.TabIndex = 15;
+            this.ModeButton.Text = "Dark Mode";
+            this.ModeButton.UseVisualStyleBackColor = false;
+            this.ModeButton.Click += new System.EventHandler(this.ModeButton_Click);
             // 
             // StudEnrollmentForm
             // 
@@ -315,7 +327,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(836, 501);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ModeButton);
+            this.Controls.Add(this.UCLogo);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -333,7 +346,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UCLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,6 +382,7 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox UCLogo;
+        private System.Windows.Forms.Button ModeButton;
     }
 }

@@ -17,34 +17,22 @@ namespace EnrollmentSystem
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
         private void SubjectEntryButton_MouseEnter(object sender, EventArgs e)
         {
-            SubjectEntryButton.SetBounds(SubjectEntryButton.Location.X+50, SubjectEntryButton.Location.Y, SubjectEntryButton.Width, SubjectEntryButton.Height) ;
+            SubjectEntryButton.SetBounds(SubjectEntryButton.Location.X+20, SubjectEntryButton.Location.Y, SubjectEntryButton.Width, SubjectEntryButton.Height) ;
+            SubjectEntryButton.BackColor= Color.Yellow;
         }
 
         private void SubjectEntryButton_Click(object sender, EventArgs e)
         {
-
+            StudEnrollmentForm ShowSubjEntry = new StudEnrollmentForm();
+            ShowSubjEntry.Show();
         }
 
         private void SubjectEntryButton_MouseLeave(object sender, EventArgs e)
         {
-            SubjectEntryButton.SetBounds(SubjectEntryButton.Location.X - 50, SubjectEntryButton.Location.Y, SubjectEntryButton.Width, SubjectEntryButton.Height);
+            SubjectEntryButton.SetBounds(SubjectEntryButton.Location.X - 20, SubjectEntryButton.Location.Y, SubjectEntryButton.Width, SubjectEntryButton.Height);
+            SubjectEntryButton.BackColor = Color.PaleTurquoise;
         }
     }
 }
