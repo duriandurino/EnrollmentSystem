@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudEnrollmentForm));
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -41,7 +40,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EnrollmentFormTable = new System.Windows.Forms.DataGridView();
             this.EdpCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,32 +58,24 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.UCLogo = new System.Windows.Forms.PictureBox();
             this.ModeButton = new System.Windows.Forms.Button();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.EnrollmentFormTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UCLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.ForeColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(12, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(275, 27);
-            this.panel2.TabIndex = 8;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Yellow;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Location = new System.Drawing.Point(17, 16);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(272, 25);
+            this.label12.Size = new System.Drawing.Size(256, 27);
             this.label12.TabIndex = 6;
             this.label12.Text = "Student Enrollment Form";
             // 
@@ -168,11 +159,11 @@
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 10;
             // 
-            // dataGridView1
+            // EnrollmentFormTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EnrollmentFormTable.AllowUserToAddRows = false;
+            this.EnrollmentFormTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EnrollmentFormTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EdpCodeColumn,
             this.SubjectCodeColumn,
             this.StartTimeColumn,
@@ -180,12 +171,11 @@
             this.DaysColumn,
             this.RoomColumn,
             this.UnitsColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(9, 14);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(796, 150);
-            this.dataGridView1.TabIndex = 11;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.EnrollmentFormTable.Location = new System.Drawing.Point(9, 14);
+            this.EnrollmentFormTable.Name = "EnrollmentFormTable";
+            this.EnrollmentFormTable.RowHeadersVisible = false;
+            this.EnrollmentFormTable.Size = new System.Drawing.Size(796, 150);
+            this.EnrollmentFormTable.TabIndex = 11;
             // 
             // EdpCodeColumn
             // 
@@ -246,7 +236,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleTurquoise;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.EnrollmentFormTable);
             this.panel3.Location = new System.Drawing.Point(12, 233);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(818, 176);
@@ -313,13 +303,43 @@
             // ModeButton
             // 
             this.ModeButton.BackColor = System.Drawing.Color.DarkCyan;
+            this.ModeButton.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ModeButton.Location = new System.Drawing.Point(749, 16);
             this.ModeButton.Name = "ModeButton";
-            this.ModeButton.Size = new System.Drawing.Size(75, 23);
+            this.ModeButton.Size = new System.Drawing.Size(75, 53);
             this.ModeButton.TabIndex = 15;
             this.ModeButton.Text = "Dark Mode";
             this.ModeButton.UseVisualStyleBackColor = false;
             this.ModeButton.Click += new System.EventHandler(this.ModeButton_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button2.Location = new System.Drawing.Point(668, 472);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Prev";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button1.Location = new System.Drawing.Point(749, 472);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Next";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(584, 477);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Form 3 out of 3";
             // 
             // StudEnrollmentForm
             // 
@@ -327,6 +347,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(836, 501);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.ModeButton);
             this.Controls.Add(this.UCLogo);
             this.Controls.Add(this.dateTimePicker1);
@@ -336,13 +360,10 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label6);
             this.Name = "StudEnrollmentForm";
             this.Text = "StudEnrollmentForm";
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnrollmentFormTable)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -353,8 +374,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
@@ -366,7 +385,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView EnrollmentFormTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn EdpCodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectCodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTimeColumn;
@@ -384,5 +403,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox UCLogo;
         private System.Windows.Forms.Button ModeButton;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
     }
 }

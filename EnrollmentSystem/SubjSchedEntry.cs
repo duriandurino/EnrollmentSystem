@@ -21,5 +21,22 @@ namespace EnrollmentSystem
         {
 
         }
+
+        private void ModeButton_Click(object sender, EventArgs e)
+        {
+            if (SubjSchedEntry.ActiveForm.BackColor == Color.White)
+            {
+                SubjSchedEntry.ActiveForm.BackColor = Color.DarkCyan;
+                ModeButton.BackColor = Color.White;
+                ModeButton.Text = "Light Mode";
+            }
+            else
+            {
+                SubjSchedEntry.ActiveForm.BackColor = Color.White;
+                ModeButton.BackColor = Color.DarkCyan;
+                ModeButton.Text = "Dark Mode";
+
+            }
+        }
     }
 }

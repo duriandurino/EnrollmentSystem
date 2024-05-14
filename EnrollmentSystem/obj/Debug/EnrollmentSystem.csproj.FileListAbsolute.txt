@@ -12,3 +12,16 @@
 \\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.SubjSchedEntry.resources
 \\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.Homepage.resources
 \\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.StudEnrollmentForm.resources
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\bin\Debug\EnrollmentSystem.exe.config
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\bin\Debug\EnrollmentSystem.exe
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\bin\Debug\EnrollmentSystem.pdb
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.csproj.AssemblyReference.cache
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.Homepage.resources
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.StudEnrollmentForm.resources
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.SubjectEntry.resources
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.Properties.Resources.resources
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.SubjSchedEntry.resources
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.csproj.GenerateResource.cache
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.csproj.CoreCompileInputs.cache
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.exe
+C:\AppsDevFinals\EnrollmentSystem\EnrollmentSystem\obj\Debug\EnrollmentSystem.pdb
