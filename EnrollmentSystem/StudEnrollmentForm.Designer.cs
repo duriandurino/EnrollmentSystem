@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudEnrollmentForm));
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.IdNumTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.CourseLabel = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.YearLabel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.EdpCodeTextBox = new System.Windows.Forms.TextBox();
             this.EnrollmentFormTable = new System.Windows.Forms.DataGridView();
             this.EdpCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,11 +51,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.UnitsLabel = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.EncodedTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.UCLogo = new System.Windows.Forms.PictureBox();
             this.ModeButton = new System.Windows.Forms.Button();
             this.PrevButton = new System.Windows.Forms.Button();
@@ -88,12 +88,13 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "ID Number";
             // 
-            // textBox1
+            // IdNumTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(70, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 20);
-            this.textBox1.TabIndex = 10;
+            this.IdNumTextBox.Location = new System.Drawing.Point(70, 11);
+            this.IdNumTextBox.Name = "IdNumTextBox";
+            this.IdNumTextBox.Size = new System.Drawing.Size(144, 20);
+            this.IdNumTextBox.TabIndex = 10;
+            this.IdNumTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdNumTextBox_KeyPress);
             // 
             // label2
             // 
@@ -104,12 +105,13 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Name";
             // 
-            // textBox2
+            // NameLabel
             // 
-            this.textBox2.Location = new System.Drawing.Point(70, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 20);
-            this.textBox2.TabIndex = 10;
+            this.NameLabel.Location = new System.Drawing.Point(70, 37);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.ReadOnly = true;
+            this.NameLabel.Size = new System.Drawing.Size(235, 20);
+            this.NameLabel.TabIndex = 10;
             // 
             // label3
             // 
@@ -120,12 +122,13 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Course";
             // 
-            // textBox3
+            // CourseLabel
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 73);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(60, 20);
-            this.textBox3.TabIndex = 10;
+            this.CourseLabel.Location = new System.Drawing.Point(115, 73);
+            this.CourseLabel.Name = "CourseLabel";
+            this.CourseLabel.ReadOnly = true;
+            this.CourseLabel.Size = new System.Drawing.Size(60, 20);
+            this.CourseLabel.TabIndex = 10;
             // 
             // label4
             // 
@@ -136,12 +139,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Year";
             // 
-            // textBox4
+            // YearLabel
             // 
-            this.textBox4.Location = new System.Drawing.Point(220, 73);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(66, 20);
-            this.textBox4.TabIndex = 10;
+            this.YearLabel.Location = new System.Drawing.Point(220, 73);
+            this.YearLabel.Name = "YearLabel";
+            this.YearLabel.ReadOnly = true;
+            this.YearLabel.Size = new System.Drawing.Size(66, 20);
+            this.YearLabel.TabIndex = 10;
             // 
             // label5
             // 
@@ -152,12 +156,12 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "EDP Code";
             // 
-            // textBox5
+            // EdpCodeTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(70, 133);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 10;
+            this.EdpCodeTextBox.Location = new System.Drawing.Point(70, 133);
+            this.EdpCodeTextBox.Name = "EdpCodeTextBox";
+            this.EdpCodeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.EdpCodeTextBox.TabIndex = 10;
             // 
             // EnrollmentFormTable
             // 
@@ -218,15 +222,15 @@
             this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.IdNumTextBox);
+            this.panel1.Controls.Add(this.EdpCodeTextBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.NameLabel);
+            this.panel1.Controls.Add(this.YearLabel);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.CourseLabel);
             this.panel1.Location = new System.Drawing.Point(12, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(316, 172);
@@ -251,12 +255,12 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Total Units";
             // 
-            // textBox6
+            // UnitsLabel
             // 
-            this.textBox6.Location = new System.Drawing.Point(718, 415);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 10;
+            this.UnitsLabel.Location = new System.Drawing.Point(718, 415);
+            this.UnitsLabel.Name = "UnitsLabel";
+            this.UnitsLabel.Size = new System.Drawing.Size(100, 20);
+            this.UnitsLabel.TabIndex = 10;
             // 
             // label7
             // 
@@ -267,12 +271,12 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Encoded By:";
             // 
-            // textBox7
+            // EncodedTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(101, 469);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 10;
+            this.EncodedTextBox.Location = new System.Drawing.Point(101, 469);
+            this.EncodedTextBox.Name = "EncodedTextBox";
+            this.EncodedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.EncodedTextBox.TabIndex = 10;
             // 
             // label8
             // 
@@ -283,12 +287,12 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Date";
             // 
-            // dateTimePicker1
+            // DateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(357, 469);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 13;
+            this.DateTimePicker.Location = new System.Drawing.Point(357, 469);
+            this.DateTimePicker.Name = "DateTimePicker";
+            this.DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePicker.TabIndex = 13;
             // 
             // UCLogo
             // 
@@ -356,11 +360,11 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.ModeButton);
             this.Controls.Add(this.UCLogo);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DateTimePicker);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.EncodedTextBox);
+            this.Controls.Add(this.UnitsLabel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -381,15 +385,15 @@
         #endregion
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox IdNumTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NameLabel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox CourseLabel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox YearLabel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox EdpCodeTextBox;
         private System.Windows.Forms.DataGridView EnrollmentFormTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn EdpCodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectCodeColumn;
@@ -401,11 +405,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox UnitsLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox EncodedTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DateTimePicker;
         private System.Windows.Forms.PictureBox UCLogo;
         private System.Windows.Forms.Button ModeButton;
         private System.Windows.Forms.Button PrevButton;

@@ -18,126 +18,144 @@ namespace EnrollmentSystem
             InitializeComponent();
         }
 
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\Alejandrino.accdb";
-
-        private void SaveButton_Click(object sender, EventArgs e)
+        public void ScanSubjFile(OleDbDataReader thisDataReader)
         {
 
-            //***************** FOR THE SUBJECTFILE ******************************************
+            while (thisDataReader.Read())
+            {
+                found = false;
+                subjectCode = "";
+                description = "";
+                units = "";
+                if (thisDataReader["SFSUBJCODE"].ToString().Trim().ToUpper() == RequisiteTextBox.Text.Trim().ToUpper())
 
+                {
+                    found = true;
+                    subjectCode = thisDataReader["SFSUBJCODE"].ToString();
+                    description = thisDataReader["SFSUBJDESC"].ToString();
+                    units = thisDataReader["SFSUBJUNITS"].ToString();
+                    found = true;
+                    break;
+                }
+                else
+                {
+                    found = false;
+                }
+            }
+        }
+
+        public void ScanReqFile(OleDbDataReader reqDataReader)
+        {
+            requisite = "";
+            while (reqDataReader.Read())
+            {
+                if ((reqDataReader["SUBJCODE"].ToString().Trim().ToUpper() == RequisiteTextBox.Text.Trim().ToUpper()))
+                {
+                    requisite = reqDataReader["SUBJPRECODE"].ToString();
+                    break;
+                }
+            }
+        }
+
+        public void ToSubjFile(DataSet thisDataSet, OleDbDataAdapter thisAdapter, DataRow thisRow) {
+            thisRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
+            thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
+            thisRow["SFSUBJUNITS"] = UnitsTextBox.Text;
+            thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.Text.Substring(0, 1);
+            thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text;
+            thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
+            thisRow["SFSUBJCURRYEAR"] = CurriculumYearTextBox.Text;
+
+            thisDataSet.Tables["SUBJECTFILE"].Rows.Add(thisRow);
+            thisAdapter.Update(thisDataSet, "SUBJECTFILE");
+        }
+
+        //string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\Server2\second semester 2023-2024\LAB802\79866_CC_APPSDEV22_1200_0130_PM_TTH\79866-23237761\Desktop\FINALS\EnrollmentSystem\Alejandrino.accdb";
+        string connectionString = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\AppsDevFinals\EnrollmentSystem\Alejandrino.accdb";// laptop conStr
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
             OleDbConnection thisConnection = new OleDbConnection(connectionString);
-            string sql = "SELECT * FROM SUBJECTFILE";
-            OleDbDataAdapter thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+            string Ole = "SELECT * FROM SUBJECTFILE";
+            OleDbDataAdapter thisAdapter = new OleDbDataAdapter(Ole, thisConnection);
             OleDbCommandBuilder thisBuilder = new OleDbCommandBuilder(thisAdapter);
-
             DataSet thisDataSet = new DataSet();
-
-            // Primary key setup by initializing the PrimaryKey property of the DataTable implicitly, simply setup keys object for defining primary key.
             thisAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            thisAdapter.Fill(thisDataSet, "SubjectFile"); // Fill DataSet using the query defined for DataAdapter
+            thisAdapter.Fill(thisDataSet, "SUBJECTFILE");
 
-            DataRow findRow = thisDataSet.Tables["SubjectFile"].Rows.Find(SubjectCodeTextBox.Text);
+            DataRow findRow = thisDataSet.Tables["SUBJECTFILE"].Rows.Find(SubjectCodeTextBox.Text);
+
             if (findRow == null)
             {
-                DataRow thisRow = thisDataSet.Tables["SubjectFile"].NewRow();
-                thisRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
-                thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
-                thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
-                thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 3);
-                thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
-                thisRow["SFSUBJREGOFRNG"] = Convert.ToUInt16(OfferingComboBox.Text.Substring(0, 1));
+                DataRow thisRow = thisDataSet.Tables["SUBJECTFILE"].NewRow();
 
+                ToSubjFile(thisDataSet, thisAdapter, thisRow);
 
-                thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
-                thisAdapter.Update(thisDataSet, "SubjectFile");
-
-                //*****************   TODO: Save DATA TO SUBJPREQFILE **********************************
-                OleDbConnection requisiteConnection = new OleDbConnection(connectionString);
-                string requisite = "SELECT * FROM SUBJECPREQFILE";
-                OleDbDataAdapter requisiteAdapter = new OleDbDataAdapter(requisite, requisiteConnection);
-                OleDbCommandBuilder requisiteBuilder = new OleDbCommandBuilder(requisiteAdapter);
-
-
+                thisConnection = new OleDbConnection(connectionString);
+                Ole = "SELECT * FROM SUBJECTPREQFILE";
+                thisAdapter = new OleDbDataAdapter(Ole, thisConnection);
+                thisBuilder = new OleDbCommandBuilder(thisAdapter);
+                thisDataSet = new DataSet();
                 thisAdapter.Fill(thisDataSet, "SUBJECTPREQFILE");
-                //setup primary key
-                DataColumn[] keys = new DataColumn[2];// DataColumn array is named keys
-                                                      //assign the first element of the keys array, keys[0] to the ProductID column in Product table. 
-                keys[0] = thisDataSet.Tables["SUBJECTPREQFILE"].Columns["SUBJCODE"];
-                keys[1] = thisDataSet.Tables["SUBJECTPREQFILE"].Columns["SUBJPRECODE"];
 
-                // assign the array keys to the PrimaryKey property of the OrderDetails DataTable object.
-                thisDataSet.Tables["SUBJECTPREQFILE"].PrimaryKey = keys;
+                thisRow = thisDataSet.Tables["SUBJECTPREQFILE"].NewRow();
 
-                // values to be searched
-                String[] valuesToSearch = new String[2];
-                valuesToSearch[0] = SubjectCodeTextBox.Text;
-                valuesToSearch[1] = RequisiteTextBox.Text;
-
-                DataRow findRequisiteRow = thisDataSet.Tables["SUBJECTPREQFILE"].Rows.Find(valuesToSearch);
-                if (findRequisiteRow == null)
+                if (RequisiteTextBox.Text != string.Empty)
                 {
+                    thisRow["SUBJCODE"] = SubjectCodeTextBox.Text;
+                    thisRow["SUBJPRECODE"] = RequisiteTextBox.Text;
+                    if (PRRadioButton.Checked == true)
+                    {
+                        thisRow["SUBJCATEGORY"] = "PR";
+                    }
 
-                    DataRow thisRequisiteRow = thisDataSet.Tables["SUBJECTPREQFILE"].NewRow();
+                    else if (CRRadioButton.Checked == true)
+                    {
+                        thisRow["SUBJCATEGORY"] = "CR";
+                    }
 
-                    thisRequisiteRow["SUBJCODE"] = SubjectCodeTextBox.Text;
-
-                    //add more codes!!!!
-
+                    thisDataSet.Tables["SUBJECTPREQFILE"].Rows.Add(thisRow);
+                    thisAdapter.Update(thisDataSet, "SUBJECTPREQFILE");
                 }
-                MessageBox.Show("Entries Recorded");
+
+                MessageBox.Show("RECORDED");
             }
             else
             {
-                MessageBox.Show("Duplicate Entries");
-
+                MessageBox.Show("Duplicate Entry!");
             }
-
-            //TRAP
         }
+
+        bool found = false;
+        string subjectCode = "";
+        string description = "";
+        string units = "";
+        string requisite = "";
 
         private void RequisiteTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar==(char)Keys.Enter) {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
                 OleDbConnection thisConnection = new OleDbConnection(connectionString);
                 thisConnection.Open();
+                
                 OleDbCommand thisCommand = thisConnection.CreateCommand();
+                OleDbCommand thisCommandPreq = thisConnection.CreateCommand();
 
-                string sql = "SELECT * FROM SUBJECTFILE";
-                thisCommand.CommandText = sql;
+                string subjPreq = "SELECT * FROM SUBJECTPREQFILE";
+                thisCommandPreq.CommandText = subjPreq;
+
+                string subjFile = "SELECT * FROM SUBJECTFILE";
+                thisCommand.CommandText = subjFile;
 
                 OleDbDataReader thisDataReader = thisCommand.ExecuteReader();
+                OleDbDataReader reqDataReader = thisCommandPreq.ExecuteReader();
 
-                bool found = false;
-                string subjectCode = "";
-                string description = "";
-                string units = "";
-                string requisite = "";
-
-                if (PRRadioButton.Checked) {
-                    requisite = "PR";
-                }
-                else {
-                    requisite = "CR";             
-                }
-
-                while (thisDataReader.Read())
-                {
-                    // MessageBox.Show(thisDataReader["SFSUBJCODE"].ToString());
-                    if (thisDataReader["SFSUBJCODE"].ToString().Trim().ToUpper() == RequisiteTextBox.Text.Trim().ToUpper())
-                    {
-                        found = true;
-                        subjectCode = thisDataReader["SFSUBJCODE"].ToString();
-                        description = thisDataReader["SFSUBJDESC"].ToString();
-                        units = thisDataReader["SFSUBJUNITS"].ToString();
-                        break;
-                        //
-                    }
-
-                }
+                ScanSubjFile(thisDataReader);
+                ScanReqFile(reqDataReader);
 
                 int index;
                 if (found == false)
-                    MessageBox.Show("Subject Code Not Found");
+                { MessageBox.Show("Subject Code Not Found"); }
                 else
                 {
                     index = SubjectDataGridView.Rows.Add();
