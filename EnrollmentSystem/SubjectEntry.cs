@@ -44,6 +44,7 @@ namespace EnrollmentSystem
                 thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
                 thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
                 thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 3);
+                thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
                 thisRow["SFSUBJREGOFRNG"] = Convert.ToUInt16(OfferingComboBox.Text.Substring(0, 1));
 
 
@@ -91,28 +92,7 @@ namespace EnrollmentSystem
 
             }
 
-            /*
-                        OleDbConnection thisConnection = new OleDbConnection(connectionString);
-                        string sql = "SELECT * FROM SUBJECTFILE";
-                        OleDbDataAdapter thisAdapter = new OleDbDataAdapter(sql, thisConnection);
-                        OleDbCommandBuilder thisBuilder = new OleDbCommandBuilder(thisAdapter);
-
-                        DataSet thisDataSet = new DataSet();
-                        thisAdapter.Fill(thisDataSet, "SubjectFile");
-
-                        DataRow thisRow = thisDataSet.Tables["SubjectFile"].NewRow();
-                        thisRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
-                        thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
-                        thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
-                        thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text;
-                        thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.Text;
-                        thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
-                        thisRow["SFSUBJCURRYEAR"] = CurriculumYearTextBox.Text;
-
-                        thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
-                        thisAdapter.Update(thisDataSet, "SubjectFile");
-                        MessageBox.Show("Entries Recorded");*/
-
+            //TRAP
         }
 
         private void RequisiteTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -131,6 +111,14 @@ namespace EnrollmentSystem
                 string subjectCode = "";
                 string description = "";
                 string units = "";
+                string requisite = "";
+
+                if (PRRadioButton.Checked) {
+                    requisite = "PR";
+                }
+                else {
+                    requisite = "CR";             
+                }
 
                 while (thisDataReader.Read())
                 {
@@ -156,6 +144,8 @@ namespace EnrollmentSystem
                     SubjectDataGridView.Rows[index].Cells["SubjectCodeColumn"].Value = subjectCode;
                     SubjectDataGridView.Rows[index].Cells["DescriptionColumn"].Value = description;
                     SubjectDataGridView.Rows[index].Cells["UnitsColumn"].Value = units;
+                    SubjectDataGridView.Rows[index].Cells["PreRequisiteColumn"].Value = requisite;
+
                 }
             }
         }
@@ -164,6 +154,7 @@ namespace EnrollmentSystem
         {
             /*SubjSchedEntry subjSchedEntry = new SubjSchedEntry();
             subjSchedEntry.Show();*/
+            PRRadioButton.Checked = true;
         }
 
         private void ModeButton_Click(object sender, EventArgs e)
