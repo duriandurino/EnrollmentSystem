@@ -23,27 +23,96 @@ namespace EnrollmentSystem
         private void SaveButton_Click(object sender, EventArgs e)
         {
 
+            //***************** FOR THE SUBJECTFILE ******************************************
+
             OleDbConnection thisConnection = new OleDbConnection(connectionString);
             string sql = "SELECT * FROM SUBJECTFILE";
             OleDbDataAdapter thisAdapter = new OleDbDataAdapter(sql, thisConnection);
             OleDbCommandBuilder thisBuilder = new OleDbCommandBuilder(thisAdapter);
 
             DataSet thisDataSet = new DataSet();
-            thisAdapter.Fill(thisDataSet, "SubjectFile");
 
-            DataRow thisRow = thisDataSet.Tables["SubjectFile"].NewRow();
-            thisRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
-            thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
-            thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
-            thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text;
-            thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.Text;
-            thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
-            thisRow["SFSUBJCURRYEAR"] = CurriculumYearTextBox.Text;
+            // Primary key setup by initializing the PrimaryKey property of the DataTable implicitly, simply setup keys object for defining primary key.
+            thisAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            thisAdapter.Fill(thisDataSet, "SubjectFile"); // Fill DataSet using the query defined for DataAdapter
 
-            thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
-            thisAdapter.Update(thisDataSet, "SubjectFile");
-            MessageBox.Show("Entries Recorded");
-            
+            DataRow findRow = thisDataSet.Tables["SubjectFile"].Rows.Find(SubjectCodeTextBox.Text);
+            if (findRow == null)
+            {
+                DataRow thisRow = thisDataSet.Tables["SubjectFile"].NewRow();
+                thisRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
+                thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
+                thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
+                thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text.Substring(0, 3);
+                thisRow["SFSUBJREGOFRNG"] = Convert.ToUInt16(OfferingComboBox.Text.Substring(0, 1));
+
+
+                thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
+                thisAdapter.Update(thisDataSet, "SubjectFile");
+
+                //*****************   TODO: Save DATA TO SUBJPREQFILE **********************************
+                OleDbConnection requisiteConnection = new OleDbConnection(connectionString);
+                string requisite = "SELECT * FROM SUBJECPREQFILE";
+                OleDbDataAdapter requisiteAdapter = new OleDbDataAdapter(requisite, requisiteConnection);
+                OleDbCommandBuilder requisiteBuilder = new OleDbCommandBuilder(requisiteAdapter);
+
+
+                thisAdapter.Fill(thisDataSet, "SUBJECTPREQFILE");
+                //setup primary key
+                DataColumn[] keys = new DataColumn[2];// DataColumn array is named keys
+                                                      //assign the first element of the keys array, keys[0] to the ProductID column in Product table. 
+                keys[0] = thisDataSet.Tables["SUBJECTPREQFILE"].Columns["SUBJCODE"];
+                keys[1] = thisDataSet.Tables["SUBJECTPREQFILE"].Columns["SUBJPRECODE"];
+
+                // assign the array keys to the PrimaryKey property of the OrderDetails DataTable object.
+                thisDataSet.Tables["SUBJECTPREQFILE"].PrimaryKey = keys;
+
+                // values to be searched
+                String[] valuesToSearch = new String[2];
+                valuesToSearch[0] = SubjectCodeTextBox.Text;
+                valuesToSearch[1] = RequisiteTextBox.Text;
+
+                DataRow findRequisiteRow = thisDataSet.Tables["SUBJECTPREQFILE"].Rows.Find(valuesToSearch);
+                if (findRequisiteRow == null)
+                {
+
+                    DataRow thisRequisiteRow = thisDataSet.Tables["SUBJECTPREQFILE"].NewRow();
+
+                    thisRequisiteRow["SUBJCODE"] = SubjectCodeTextBox.Text;
+
+                    //add more codes!!!!
+
+                }
+                MessageBox.Show("Entries Recorded");
+            }
+            else
+            {
+                MessageBox.Show("Duplicate Entries");
+
+            }
+
+            /*
+                        OleDbConnection thisConnection = new OleDbConnection(connectionString);
+                        string sql = "SELECT * FROM SUBJECTFILE";
+                        OleDbDataAdapter thisAdapter = new OleDbDataAdapter(sql, thisConnection);
+                        OleDbCommandBuilder thisBuilder = new OleDbCommandBuilder(thisAdapter);
+
+                        DataSet thisDataSet = new DataSet();
+                        thisAdapter.Fill(thisDataSet, "SubjectFile");
+
+                        DataRow thisRow = thisDataSet.Tables["SubjectFile"].NewRow();
+                        thisRow["SFSUBJCODE"] = SubjectCodeTextBox.Text;
+                        thisRow["SFSUBJDESC"] = DescriptionTextBox.Text;
+                        thisRow["SFSUBJUNITS"] = Convert.ToInt16(UnitsTextBox.Text);
+                        thisRow["SFSUBJCATEGORY"] = CategoryComboBox.Text;
+                        thisRow["SFSUBJREGOFRNG"] = OfferingComboBox.Text;
+                        thisRow["SFSUBJCOURSECODE"] = CourseCodeComboBox.Text;
+                        thisRow["SFSUBJCURRYEAR"] = CurriculumYearTextBox.Text;
+
+                        thisDataSet.Tables["SubjectFile"].Rows.Add(thisRow);
+                        thisAdapter.Update(thisDataSet, "SubjectFile");
+                        MessageBox.Show("Entries Recorded");*/
+
         }
 
         private void RequisiteTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -95,6 +164,39 @@ namespace EnrollmentSystem
         {
             /*SubjSchedEntry subjSchedEntry = new SubjSchedEntry();
             subjSchedEntry.Show();*/
+        }
+
+        private void ModeButton_Click(object sender, EventArgs e)
+        {
+            if (SubjectEntry.ActiveForm.BackColor == Color.White)
+            {
+                SubjectEntry.ActiveForm.BackColor = Color.DarkCyan;
+                ModeButton.BackColor = Color.White;
+                ModeButton.Text = "Light Mode";
+            }
+            else
+            {
+                SubjectEntry.ActiveForm.BackColor = Color.White;
+                ModeButton.BackColor = Color.DarkCyan;
+                ModeButton.Text = "Dark Mode";
+
+            }
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            SubjSchedEntry SSE = new SubjSchedEntry();
+            Hide();
+            SSE.ShowDialog();
+            Close();
+        }
+
+        private void PrevButton_Click(object sender, EventArgs e)
+        {
+            Homepage HP = new Homepage();
+            Hide();
+            HP.ShowDialog();
+            Close();
         }
     }
 }
