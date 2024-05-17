@@ -84,7 +84,7 @@ namespace EnrollmentSystem
 
             DataRow findRow = thisDataSet.Tables["SUBJECTFILE"].Rows.Find(SubjectCodeTextBox.Text);
 
-            if (findRow == null)
+            if (findRow == null&&SubjectCodeTextBox.Text!=string.Empty)
             {
                 DataRow thisRow = thisDataSet.Tables["SUBJECTFILE"].NewRow();
 
@@ -121,7 +121,7 @@ namespace EnrollmentSystem
             }
             else
             {
-                MessageBox.Show("Duplicate Entry!");
+                MessageBox.Show("Duplicate/Null Entry!");
             }
         }
 

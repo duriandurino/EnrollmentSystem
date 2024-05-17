@@ -51,13 +51,13 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.StartTimeTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ModeButton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.PrevButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.StartTimeTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -243,6 +243,7 @@
             this.ClearButton.TabIndex = 4;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = false;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // panel1
             // 
@@ -273,6 +274,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 301);
             this.panel1.TabIndex = 5;
+            // 
+            // StartTimeTextBox
+            // 
+            this.StartTimeTextBox.Location = new System.Drawing.Point(118, 111);
+            this.StartTimeTextBox.Name = "StartTimeTextBox";
+            this.StartTimeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.StartTimeTextBox.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -338,13 +346,6 @@
             this.label13.Size = new System.Drawing.Size(78, 13);
             this.label13.TabIndex = 20;
             this.label13.Text = "Form 2 out of 3";
-            // 
-            // StartTimeTextBox
-            // 
-            this.StartTimeTextBox.Location = new System.Drawing.Point(118, 111);
-            this.StartTimeTextBox.Name = "StartTimeTextBox";
-            this.StartTimeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.StartTimeTextBox.TabIndex = 1;
             // 
             // SubjSchedEntry
             // 

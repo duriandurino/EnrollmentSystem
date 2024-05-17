@@ -40,7 +40,7 @@
             this.YearLabel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.EdpCodeTextBox = new System.Windows.Forms.TextBox();
-            this.EnrollmentFormTable = new System.Windows.Forms.DataGridView();
+            this.SubjectDataGridView = new System.Windows.Forms.DataGridView();
             this.EdpCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubjectCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +61,7 @@
             this.PrevButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.EnrollmentFormTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UCLogo)).BeginInit();
@@ -162,12 +162,13 @@
             this.EdpCodeTextBox.Name = "EdpCodeTextBox";
             this.EdpCodeTextBox.Size = new System.Drawing.Size(100, 20);
             this.EdpCodeTextBox.TabIndex = 10;
+            this.EdpCodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EdpCodeTextBox_KeyPress);
             // 
-            // EnrollmentFormTable
+            // SubjectDataGridView
             // 
-            this.EnrollmentFormTable.AllowUserToAddRows = false;
-            this.EnrollmentFormTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EnrollmentFormTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubjectDataGridView.AllowUserToAddRows = false;
+            this.SubjectDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SubjectDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EdpCodeColumn,
             this.SubjectCodeColumn,
             this.StartTimeColumn,
@@ -175,11 +176,11 @@
             this.DaysColumn,
             this.RoomColumn,
             this.UnitsColumn});
-            this.EnrollmentFormTable.Location = new System.Drawing.Point(9, 14);
-            this.EnrollmentFormTable.Name = "EnrollmentFormTable";
-            this.EnrollmentFormTable.RowHeadersVisible = false;
-            this.EnrollmentFormTable.Size = new System.Drawing.Size(796, 150);
-            this.EnrollmentFormTable.TabIndex = 11;
+            this.SubjectDataGridView.Location = new System.Drawing.Point(9, 14);
+            this.SubjectDataGridView.Name = "SubjectDataGridView";
+            this.SubjectDataGridView.RowHeadersVisible = false;
+            this.SubjectDataGridView.Size = new System.Drawing.Size(796, 150);
+            this.SubjectDataGridView.TabIndex = 11;
             // 
             // EdpCodeColumn
             // 
@@ -240,7 +241,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleTurquoise;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.EnrollmentFormTable);
+            this.panel3.Controls.Add(this.SubjectDataGridView);
             this.panel3.Location = new System.Drawing.Point(12, 233);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(818, 176);
@@ -259,6 +260,7 @@
             // 
             this.UnitsLabel.Location = new System.Drawing.Point(718, 415);
             this.UnitsLabel.Name = "UnitsLabel";
+            this.UnitsLabel.ReadOnly = true;
             this.UnitsLabel.Size = new System.Drawing.Size(100, 20);
             this.UnitsLabel.TabIndex = 10;
             // 
@@ -275,7 +277,7 @@
             // 
             this.EncodedTextBox.Location = new System.Drawing.Point(101, 469);
             this.EncodedTextBox.Name = "EncodedTextBox";
-            this.EncodedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.EncodedTextBox.Size = new System.Drawing.Size(126, 20);
             this.EncodedTextBox.TabIndex = 10;
             // 
             // label8
@@ -372,7 +374,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Enrollment Form";
             this.Load += new System.EventHandler(this.StudEnrollmentForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.EnrollmentFormTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubjectDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -394,7 +396,7 @@
         private System.Windows.Forms.TextBox YearLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox EdpCodeTextBox;
-        private System.Windows.Forms.DataGridView EnrollmentFormTable;
+        private System.Windows.Forms.DataGridView SubjectDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn EdpCodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubjectCodeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTimeColumn;

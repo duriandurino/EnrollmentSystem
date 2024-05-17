@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -105,6 +106,158 @@ namespace EnrollmentSystem
                     CourseLabel.Text = course;
                     YearLabel.Text = yrlevel;
                 }
+            }
+        }
+
+        int totalUnits = 0;
+        int index=0;
+
+        private void EdpCodeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                bool edpCheck = false;
+                bool timeCheck = false;
+                thisConnection = new OleDbConnection(connectionString);
+                thisConnection.Open();
+
+                OleDbCommand thisCommand = thisConnection.CreateCommand();
+                string subjSchedFile = "SELECT * FROM SUBJECTSCHEDFILE";
+                thisCommand.CommandText = subjSchedFile;
+                OleDbDataReader thisDataReader = thisCommand.ExecuteReader();
+
+                OleDbCommand sfCommand = thisConnection.CreateCommand();
+                string subjFile = "SELECT * FROM SUBJECTFILE";
+                sfCommand.CommandText = subjFile;
+                OleDbDataReader sfReader = sfCommand.ExecuteReader();
+
+                for (int size =0; size<=SubjectDataGridView.Rows.Count;size++) {
+                    if (SubjectDataGridView.Rows.Count==0) {
+                        while (thisDataReader.Read())
+                        {
+                            if (EdpCodeTextBox.Text != thisDataReader["SSFEDPCODE"].ToString().Trim().ToUpper())
+                            {
+
+                                edpCheck = false;
+
+                            }
+                            else
+                            {
+                                edpCheck=true;
+                                break;
+                            }
+                        }
+                        timeCheck = true;
+                    }
+                    else
+                    {
+                        while (thisDataReader.Read())
+                        {
+                            if (EdpCodeTextBox.Text != thisDataReader["SSFEDPCODE"].ToString().Trim().ToUpper())
+                            {
+                                edpCheck = false;
+                            }
+                            else
+                            {
+                                edpCheck = true;
+                                break;
+                            }
+                            
+                        }
+                        
+                        try
+                        {
+                            if (EdpCodeTextBox.Text == SubjectDataGridView.Rows[size].Cells["EdpCodeColumn"].Value.ToString())
+                            {
+                                edpCheck = false;
+                                break;
+                            }
+                        }
+                        catch
+                        {
+                            break;
+                        }
+
+                        while (thisDataReader.Read())
+                        {
+                            if (thisDataReader["SSFSTARTTIME"].ToString().Substring(10, 4) == SubjectDataGridView.Rows[size].Cells["StartTimeColumn"].Value.ToString()
+                                && thisDataReader["SSFENDTIME"].ToString().Substring(10, 4) == SubjectDataGridView.Rows[size].Cells["EndTimeColumn"].Value.ToString())
+                            {
+                                MessageBox.Show("Time Conflict!");
+                                timeCheck = false;
+                                break;
+                            }
+                            else
+                            {
+                                timeCheck = true;
+                            }
+                        }                        
+                    }
+                    if (edpCheck && timeCheck)
+                    {
+                        break;
+                    }
+
+                }
+
+                if (edpCheck==false) {
+                    MessageBox.Show("EDP Code conflict!");
+                }
+
+                if ((edpCheck&&timeCheck==true)) {
+                    OleDbCommand ssfCmd = thisConnection.CreateCommand();
+                    string ssf = "SELECT * FROM SUBJECTSCHEDFILE";
+                    ssfCmd.CommandText = ssf;
+                    OleDbDataReader ssfRead = ssfCmd.ExecuteReader();
+
+                    OleDbCommand sfCmd = thisConnection.CreateCommand();
+                    string sf = "SELECT * FROM SUBJECTFILE";
+                    sfCmd.CommandText = sf;
+                    OleDbDataReader sfRead = sfCmd.ExecuteReader();
+
+                    ToSubjDGV(ssfRead, sfRead);
+                    MessageBox.Show("Subject Added");
+                    UnitsLabel.Text=totalUnits.ToString();
+                }
+            }
+        }
+
+
+
+        public void ToSubjDGV(OleDbDataReader thisDataReader, OleDbDataReader sfReader)
+        {
+            string temp="";
+            while (thisDataReader.Read())
+            {
+
+                if (thisDataReader["SSFEDPCODE"].ToString() == EdpCodeTextBox.Text)
+
+                {
+                    index = SubjectDataGridView.Rows.Add();
+                    SubjectDataGridView.Rows[index].Cells["EdpCodeColumn"].Value = thisDataReader["SSFEDPCODE"].ToString();
+                    SubjectDataGridView.Rows[index].Cells["SubjectCodeColumn"].Value = thisDataReader["SSFSUBJCODE"].ToString();
+                    SubjectDataGridView.Rows[index].Cells["StartTimeColumn"].Value = thisDataReader["SSFSTARTTIME"].ToString().Substring(10, 4);
+                    SubjectDataGridView.Rows[index].Cells["EndTimeColumn"].Value = thisDataReader["SSFENDTIME"].ToString().Substring(10, 4);
+                    SubjectDataGridView.Rows[index].Cells["DaysColumn"].Value = thisDataReader["SSFDAYS"].ToString();
+                    SubjectDataGridView.Rows[index].Cells["RoomColumn"].Value = thisDataReader["SSFROOM"].ToString();
+
+                    temp= thisDataReader["SSFSUBJCODE"].ToString();
+
+                    break;
+                }
+            }
+            while (sfReader.Read()) {
+                
+                if (temp == sfReader["SFSUBJCODE"].ToString()) {
+
+                    SubjectDataGridView.Rows[index].Cells["UnitsColumn"].Value = sfReader["SFSUBJUNITS"].ToString();
+
+                    int units = Convert.ToInt16(SubjectDataGridView.Rows[index].Cells["UnitsColumn"].Value);
+                    totalUnits = totalUnits + units;
+
+                    break;
+                }
+                
             }
         }
     }

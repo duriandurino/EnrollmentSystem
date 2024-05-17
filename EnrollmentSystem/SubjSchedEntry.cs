@@ -104,38 +104,20 @@ namespace EnrollmentSystem
             thisCommand.CommandText = subjSchFile;
             OleDbDataReader thisDataReader = thisCommand.ExecuteReader();
 
-            string startTime = "";
-            string endTime = "";
-            string fxm = "";
             string edp = "";
-            string room = "";
 
             while (thisDataReader.Read())
             {
                 if ((thisDataReader["SSFEDPCODE"].ToString().Trim().ToUpper() == EdpTextBox.Text.Trim().ToUpper()))
                 {
-                    fxm = thisDataReader["SSFXM"].ToString();
                     edp = thisDataReader["SSFEDPCODE"].ToString();
 
                     break;
                 }
-                if ((thisDataReader["SSFROOM"].ToString().Trim().ToUpper() == RoomTextBox.Text.Trim().ToUpper()))
-                {
-                    if ((thisDataReader["SSFSTARTTIME"].ToString().Trim().ToUpper() == StartTimeTextBox.Text.Trim().ToUpper()))
-                    {
-                        startTime = thisDataReader["SSFSTARTTIME"].ToString();
-                    }
-                    if ((thisDataReader["SSFENDTIME"].ToString().Trim().ToUpper() == EndTimeTextBox.Text.Trim().ToUpper()))
-                    {
-                        endTime = thisDataReader["SSFENDTIME"].ToString();
-                    }
-                }
-
             }
-            if (EdpTextBox.Text != edp) {
-                if ((AmPmComboBox.Text != fxm)
-                    && (StartTimeTextBox.Text.Trim().ToUpper() != startTime.Trim().ToUpper())
-                    && (EndTimeTextBox.Text.Trim().ToUpper() != endTime.Trim().ToUpper()))
+            if (EdpTextBox.Text != string.Empty)
+            { 
+                if (EdpTextBox.Text != edp)
                 {
                     SaveSchedEntry();
 
@@ -143,12 +125,12 @@ namespace EnrollmentSystem
                 }
                 else
                 {
-                    MessageBox.Show("Time Conflict!");
+                    MessageBox.Show("EDP Code already exists!");
                 }
             }
             else
             {
-                MessageBox.Show("EDP Code already exists!");
+                MessageBox.Show("Form not complete!");
             }
 
         }
@@ -179,6 +161,20 @@ namespace EnrollmentSystem
                     }
                 }
             }
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            EdpTextBox.Text = string.Empty;
+            SubjCodeTextBox.Text = string.Empty;
+            DescLabel.Text = string.Empty;
+            StartTimeTextBox.Text = string.Empty;
+            EndTimeTextBox.Text = string.Empty;
+            AmPmComboBox.SelectedIndex = 0;
+            DaysTextBox.Text = string.Empty;
+            SectionTextBox.Text = string.Empty;
+            RoomTextBox.Text = string.Empty;
+            SYTextBox.Text = string.Empty;
         }
     }
 }
